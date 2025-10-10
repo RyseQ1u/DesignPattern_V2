@@ -1,4 +1,4 @@
-package com.ryse.reationalmodel.a_factory._01_Iterator;
+package com.ryse.reationalmodel._01_Iterator;
 
 public class Book {
     private String name;
