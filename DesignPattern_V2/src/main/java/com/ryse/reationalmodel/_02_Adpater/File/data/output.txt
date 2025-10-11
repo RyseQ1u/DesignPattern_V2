@@ -1,0 +1,5 @@
+#Sat Oct 11 16:20:40 CST 2025
+age=18
+last_name=bbb
+name=11
+Height=180
