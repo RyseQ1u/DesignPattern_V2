@@ -1,6 +1,6 @@
 package com.ryse.reationalmodel._07_Builder;
 
-public class TextBuilder extends Builder{
+public class TextBuilder implements IBuilder {
     private StringBuffer buffer = new StringBuffer();
     @Override
     public void makeTitle(String title) {

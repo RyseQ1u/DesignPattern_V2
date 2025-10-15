@@ -1,9 +1,9 @@
 package com.ryse.reationalmodel._07_Builder;
 
 public class Director {
-    private Builder builder;
+    private IBuilder builder;
 
-    public Director(Builder builder) {
+    public Director(IBuilder builder) {
         this.builder = builder;
     }
     public void construct(){
