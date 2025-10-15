@@ -17,7 +17,13 @@ public class BuilderMain {
             Director hd = new Director(hb);
             hd.construct();
             System.out.println(hb.getResult()+"文件编写完成。");
-        }else {
+        }else if(args[0].equals("Command")){
+            CommandBuilder cb = new CommandBuilder();
+            AbsDirector hd = new AbsDirector(cb);
+            hd.construct();
+        }
+
+        else {
             usage();
             System.exit(0);
         }
