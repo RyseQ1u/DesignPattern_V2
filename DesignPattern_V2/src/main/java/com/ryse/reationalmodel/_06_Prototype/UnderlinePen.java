@@ -1,7 +1,5 @@
 package com.ryse.reationalmodel._06_Prototype;
 
-import com.ryse.reationalmodel._06_Prototype.Farmework.Product;
-
 public class UnderlinePen extends AbsProduct {
     private char ulchar;
 

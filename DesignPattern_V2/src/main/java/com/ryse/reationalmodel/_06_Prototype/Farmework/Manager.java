@@ -9,7 +9,7 @@ public class Manager {
         showcase.put(name, proto);
     }
 
-    public   Product create(String protoname){
+    public Product create(String protoname){
         Product p =(Product)showcase.get(protoname);
         return p.createClone();
     }
