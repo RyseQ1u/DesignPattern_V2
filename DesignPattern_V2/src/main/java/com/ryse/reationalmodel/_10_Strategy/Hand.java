@@ -1,4 +1,4 @@
-package com.ryse.reationalmodel._10_Statregy;
+package com.ryse.reationalmodel._10_Strategy;
 
 public class Hand {
     public static final int HANDVALUE_GUU =0;//石头

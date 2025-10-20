@@ -1,6 +1,6 @@
-package com.ryse.reationalmodel._10_Statregy;
+package com.ryse.reationalmodel._10_Strategy;
 
-public class StatregyMain {
+public class StrategyMain {
     public static void main(String[] args) {
         if (args.length != 2) {
             System.out.println("args error" + args.length);
@@ -10,7 +10,7 @@ public class StatregyMain {
         int seed2 = Integer.parseInt(args[1]);
 
         Player p1 = new Player("aa", new WinningStrategy(seed1));
-        Player p2 = new Player("aa", new ProbStartegy(seed2));
+        Player p2 = new Player("aa", new RandomStrategy(seed2));
         for (int i = 0; i < 1000; i++) {
             Hand nextHand1 = p1.nextHand();
             Hand nextHand2 = p2.nextHand();

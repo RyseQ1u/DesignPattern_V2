@@ -1,8 +1,8 @@
-package com.ryse.reationalmodel._10_Statregy;
+package com.ryse.reationalmodel._10_Strategy;
 
 import java.util.Random;
 
-public class ProbStartegy implements Strategy {
+public class ProbStrategy implements Strategy {
     private Random random;
     private int preHandValue = 0;
     private int currentHandValue = 0;
@@ -12,7 +12,7 @@ public class ProbStartegy implements Strategy {
             {1, 1, 1},
     };
 
-    public ProbStartegy(int seed) {
+    public ProbStrategy(int seed) {
         this.random = new Random(seed);
     }
 
