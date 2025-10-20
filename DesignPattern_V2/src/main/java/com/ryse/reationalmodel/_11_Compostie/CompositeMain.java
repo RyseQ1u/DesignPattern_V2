@@ -22,10 +22,12 @@ public class CompositeMain {
         usrdir.add(hanako);
         usrdir.add(tomura);
         yuki.add(new File("diary.html", 100));
-        yuki.add(new File("composite.java", 200));
+        File f1 = new File("composite.java", 200);
+        yuki.add(f1);
         hanako.add(new File("memo.tex", 300));
         tomura.add(new File("game.doc", 400));
         tomura.add(new File("junk.mail", 500));
         rootdir.printList();
+        System.out.println(f1.getFullName());
     }
 }
