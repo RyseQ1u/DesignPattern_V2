@@ -25,6 +25,17 @@ public class DecoratorMain {
                         '/'
                 );
         b4.show();
+        Display b5 = new UpDownBorder(new StringDisplay("hi,world"),'-');
+        b5.show();
 
+        MultiStringDisplay b6 = new MultiStringDisplay();
+        b6.add("hi");
+        b6.add("hello");
+        b6.add("ryse");
+        b6.show();
+        Display b7 = new UpDownBorder(b6,'~');
+        b7.show();
+        Display b8 = new FullBorder(b6);
+        b8.show();
     }
 }
