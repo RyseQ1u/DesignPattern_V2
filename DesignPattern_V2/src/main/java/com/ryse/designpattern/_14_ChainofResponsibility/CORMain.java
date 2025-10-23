@@ -8,7 +8,7 @@ public class CORMain {
         OddSurpport d = new OddSurpport("d");
         SpecialSupport e = new SpecialSupport("e", 264);
         a.setNext(b).setNext(c).setNext(d).setNext(e);
-        for (int i = 0; i < 300; i+=33) {
+        for (int i = 0; i < 333; i+=33) {
             a.support(new Trouble(i));
         }
     }
