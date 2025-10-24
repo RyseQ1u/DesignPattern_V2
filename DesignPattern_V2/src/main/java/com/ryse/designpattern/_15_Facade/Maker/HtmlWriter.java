@@ -17,13 +17,12 @@ class HtmlWriter {
         writer.write("<title>" + title + "</title>");
         writer.write("</head>");
         writer.write("<body>\n");
-        writer.write("<hi>" +title +"</hi>\n");
+        writer.write("<h1>" +title +"</h1>\n");
     }
 
     /// 输出段落
     public void paragraph(String msg) throws IOException {
         writer.write("<p>" + msg + "</p>\n");
-
     }
 
     /// 输出超链接
@@ -33,6 +32,11 @@ class HtmlWriter {
 
     /// 输出邮件地址
     public void mailto(String mailaddr, String username)throws IOException {//输出邮件地址
+        link("mailto:" + mailaddr, username);
+    }
+
+    /// 输出邮件地址
+    public void listmailto(String mailaddr, String username)throws IOException {//输出邮件地址
         link("mailto:" + mailaddr, username);
     }
 
