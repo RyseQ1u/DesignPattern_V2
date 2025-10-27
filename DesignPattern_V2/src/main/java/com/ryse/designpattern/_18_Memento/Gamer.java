@@ -1,5 +1,6 @@
 package com.ryse.designpattern._18_Memento;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -9,7 +10,7 @@ public class Gamer {
     private int money;
     private List fruits =new ArrayList();
     private Random random = new Random();
-    private static String[] fruitsname=  {"苹果”，葡萄","香蕉,”橘子"};
+    private static String[] fruitsname=  {"苹果","葡萄","香蕉","橘子"};
     public Gamer(int money){
         this.money=money;
     }
@@ -50,6 +51,29 @@ public class Gamer {
                 memento.fruits.add(f);
             }
         }
+    }
+
+    public void saveMementoToFile(String filePath) throws IOException {
+        Memento memento = new Memento(money);
+        for (Object f:fruits){
+            if (((String)f).startsWith("好吃的")){
+                memento.addFruit((String)f);
+            }
+        }
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            oos.writeObject(memento);
+        }
+    }
+
+    public Memento loadMementoFromFile(String filePath) throws IOException, ClassNotFoundException {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath))) {
+            return (Memento) ois.readObject();
+        }
+    }
+
+    public void restoreFromFile(String filePath) throws IOException, ClassNotFoundException {
+        Memento m = loadMementoFromFile(filePath);
+        restoreMemento(m);
     }
 
     @Override
