@@ -11,9 +11,11 @@ public class SafeFrame extends Frame implements ActionListener,Context {
     private Button buttonUse = new Button("使用金库");
     private Button buttonAlarm = new Button("按下警铃");
     private Button buttonPhone = new Button("正常通话");
+    private Button buttonEemergent = new Button("紧急状态");
     private Button buttonExit = new Button("结束");
 
     private State state = DayState.getInstance();
+    private boolean inEemergent = false;
 
     public SafeFrame(String title) {
         super(title);
@@ -28,6 +30,7 @@ public class SafeFrame extends Frame implements ActionListener,Context {
         panel.add(buttonUse);
         panel.add(buttonAlarm);
         panel.add(buttonPhone);
+        panel.add(buttonEemergent);
         panel.add(buttonExit);
         add(panel, BorderLayout.SOUTH);
         pack();
@@ -36,6 +39,14 @@ public class SafeFrame extends Frame implements ActionListener,Context {
         buttonUse.addActionListener(e -> state.doUse(this));
         buttonAlarm.addActionListener(e -> state.doAlarm(this));
         buttonPhone.addActionListener(e -> state.doPhone(this));
+        buttonEemergent.addActionListener(e -> {
+            if(!inEemergent)
+                changeState(EmergentState.getInstance());
+            else{
+                changeState(DayState.getInstance());
+            }
+            inEemergent=!inEemergent;
+        });
         buttonExit.addActionListener(e -> System.exit(0));
     }
 
@@ -48,7 +59,9 @@ public class SafeFrame extends Frame implements ActionListener,Context {
         }
         System.out.println(clockString);
         textClock.setText(clockString);
-        state.doClock(this, hour);
+        if(!inEemergent){
+            state.doClock(this, hour);
+        }
     }
 
     public void changeState(State state) {
@@ -75,6 +88,8 @@ public class SafeFrame extends Frame implements ActionListener,Context {
             state.doPhone(this);
         } else if (e.getSource() == buttonExit) {
             System.exit(0);
+        } else if (e.getSource() == buttonEemergent) {
+            state = EmergentState.getInstance();
         }
     }
 }
