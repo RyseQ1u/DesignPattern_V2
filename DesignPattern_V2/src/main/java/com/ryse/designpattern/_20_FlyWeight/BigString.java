@@ -2,11 +2,9 @@ package com.ryse.designpattern._20_FlyWeight;
 
 public class BigString {
     private BigChar[] bigchars;
-    private boolean shared = true;
 
     public BigString(String string, boolean shared) {
         Runtime.getRuntime().gc();
-
         BigCharFactory factory = BigCharFactory.getInstance();
         bigchars = new BigChar[string.length()];
         if (shared) {
@@ -18,8 +16,7 @@ public class BigString {
                 bigchars[i] = new BigChar(string.charAt(i));
             }
         }
-        long used1 = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        System.out.println("used memory:" + used1 + "bytes");
+
     }
 
     public void print() {
@@ -28,5 +25,7 @@ public class BigString {
             System.out.println();
         }
         System.out.println("---------------");
+        long used1 = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        System.out.println("used memory:" + used1 + "bytes");
     }
 }
