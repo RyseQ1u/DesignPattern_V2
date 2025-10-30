@@ -3,13 +3,15 @@ package com.ryse.designpattern._21_Proxy;
 public class PrinterProxy implements Printable{
 
     private String name;
-    private Printer realPrinter;
+    private String className;
+    private Printable realPrinter;
 
     public PrinterProxy() {
     }
 
-    public PrinterProxy(String name) {
+    public PrinterProxy(String name,String className){
         this.name = name;
+        this.className = className;
     }
 
     @Override
@@ -32,7 +34,15 @@ public class PrinterProxy implements Printable{
     }
     private synchronized void realize() {
         if (realPrinter == null) {
-            realPrinter = new Printer(name);
+            try {
+                realPrinter = (Printable) Class.forName(className).newInstance();
+            } catch (InstantiationException e) {
+                throw new RuntimeException(e);
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
