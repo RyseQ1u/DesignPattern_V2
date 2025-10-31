@@ -7,6 +7,7 @@ import java.awt.*;
 public class DrawCanvas extends Canvas implements Drawable {
     private Color color = Color.RED;
     private int radius = 6;
+
     private MacroMommand history;
 
     public DrawCanvas(int width, int height, MacroMommand history) {
@@ -23,5 +24,8 @@ public class DrawCanvas extends Canvas implements Drawable {
 
     public void paint(Graphics g) {
         history.execute();
+    }
+    public void setColor(Color color) {
+        this.color = color;
     }
 }

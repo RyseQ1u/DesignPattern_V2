@@ -21,7 +21,6 @@ public class MacroMommand implements Command {
     public void undo() {
         if (!commands.isEmpty()) {
             commands.pop();
-            ;
         }
     }
 
