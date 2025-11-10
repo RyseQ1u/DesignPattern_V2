@@ -1,6 +1,8 @@
 package com.ryse.designpattern._23_Interpreter.Interpreter;
 
+//环境类
 public class Context {
+    //城市
     private String[] citys = {"韶关", "广州"};
     private String[] persons = {"老人", "儿童"};
  private  Expression cityPersonExp;
